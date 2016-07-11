@@ -26,10 +26,10 @@ PORT = 27950
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.settimeout(3)
 s.connect((MASTER, PORT))
-s.send("\xFF\xFF\xFF\xFFgetservers 68 empty full demo\n")
+s.send(b"\xFF\xFF\xFF\xFFgetservers 68 empty full demo\n")
 addr = {}
 d = s.recv(999999)
 for (ip, port) in get_ip_port(d):
-    print '%s:%s' % (ip, port)
+    print('%s:%s' % (ip, port))
 s.close()
     
